@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="@dimen/_3sdp"
+    card_view:cardCornerRadius="@dimen/_3sdp"
+    card_view:cardElevation="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_202sdp"
+        android:layout_gravity="center"
+        android:id="@+id/linearItem"
+        android:layout_margin="@dimen/_3sdp"
+        android:orientation="vertical"
+        android:padding="@dimen/_2sdp">
+
+
+        <ImageView
+            android:id="@+id/imgItems"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitXY"
+            />
+
+
+        <LinearLayout style="@style/viewLineStyle" />
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtName"-->
+<!--                style="@style/textViewStyleRowLayout"-->
+<!--                android:layout_below="@+id/txtItemCode"-->
+<!--                android:text="Ring" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtItemCode"-->
+<!--                style="@style/textViewStyleRowLayout"-->
+<!--                android:text="27456-0109" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtWeight"-->
+<!--                android:layout_below="@+id/txtName"-->
+<!--                style="@style/textViewStyleRowLayout"-->
+<!--                android:layout_alignParentLeft="true"-->
+<!--                android:text="7.81 g" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtCarat"-->
+<!--                android:layout_below="@+id/txtName"-->
+<!--                style="@style/textViewStyleRowLayout"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:paddingRight="@dimen/_5sdp"-->
+<!--                android:text="22K" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgShare"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:src="@drawable/ic_launcher_foreground" />-->
+
+<!--        </RelativeLayout>-->
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
