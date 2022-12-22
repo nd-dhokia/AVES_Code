@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +42,8 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.rvHome)
     RecyclerView rvHome;
 
-    GenericAdapter<String,HomeHolder> adapter;
+    GenericAdapter<String, HomeHolder> adapter;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -96,6 +99,13 @@ public class HomeFragment extends BaseFragment {
 
             @Override
             public void setViewHolderData(HomeHolder viewHolderData, String data, int position) {
+
+
+
+            }
+
+            @Override
+            public void setViewHolderData(HomeHolder holder, HomeHolder data, int position) {
 
             }
         };

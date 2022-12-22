@@ -57,5 +57,5 @@ public abstract class GenericAdapter<T, VH extends RecyclerView.ViewHolder> exte
         return modelList.size();
     }
 
-//    public abstract void setViewHolderData(HomeHolder holder, HomeHolder data, int position);
+    public abstract void setViewHolderData(HomeHolder holder, HomeHolder data, int position);
 }
