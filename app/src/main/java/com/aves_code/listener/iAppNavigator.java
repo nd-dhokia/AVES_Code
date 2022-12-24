@@ -8,8 +8,8 @@ public interface iAppNavigator {
 
     void openHomeFragment(FragmentState fragmentState);
 
-    void openDetailFragment();
+    void openDetailFragment(FragmentState fragmentState);
 
-    void openProfileFragment();
+    void openProfileFragment(FragmentState fragmentState);
 
 }

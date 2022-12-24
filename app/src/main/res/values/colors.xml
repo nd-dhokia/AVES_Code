@@ -13,8 +13,8 @@
     <color name="colorAccent">#22B24C</color>
     <color name="colorTopBar">#03A9F4</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorEdtHint">#641a1e23</color>
-    <color name="colorSplash">#C8D5E6DA</color>
+    <color name="colorGrey">#D5313339</color>
+    <color name="colorOrange">#B34C2B</color>
     <color name="colorBgBottomBar">#ED2E2E2E</color>
     <color name="selected_background">#ffbcc3</color>
 </resources>

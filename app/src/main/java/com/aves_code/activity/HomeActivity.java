@@ -36,7 +36,6 @@ public class HomeActivity extends AppNavigationActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         AppLevelClass.getInstance().getBus().unregister(this);
     }
 }

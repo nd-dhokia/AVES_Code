@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aves_code.FragmentState.FragmentState;
 import com.aves_code.R;
 import com.aves_code.adapter.generic_adapter.GenericAdapter;
 import com.aves_code.adapter.viewholder.HomeHolder;
@@ -78,7 +79,7 @@ public class HomeFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        txtTopbarTitle.setText("TEST");
+        txtTopbarTitle.setText(R.string.photo);
         imgTopbarLeft.setVisibility(View.GONE);
 
 
@@ -100,6 +101,26 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void setViewHolderData(HomeHolder viewHolderData, String data, int position) {
 
+                viewHolderData.imgItems.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        homeActivity.openDetailFragment(FragmentState.ADD);
+                    }
+                });
+
+                viewHolderData.imgProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        homeActivity.openProfileFragment(FragmentState.ADD);
+                    }
+                });
+
+                viewHolderData.txtProfileName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        homeActivity.openProfileFragment(FragmentState.ADD);
+                    }
+                });
 
 
             }
@@ -118,7 +139,6 @@ public class HomeFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-
     }
 
 }

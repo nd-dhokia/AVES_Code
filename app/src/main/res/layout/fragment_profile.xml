@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".fragment.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include layout="@layout/include_topbar" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/_30sdp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/_100ssp"
+            android:layout_height="@dimen/_100ssp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/txtName"
+            style="@style/textViewStyleRowLayout"
+            android:layout_below="@+id/txtItemCode"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:singleLine="false"
+            android:textSize="@dimen/_20ssp"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/txtLocation"
+            style="@style/textViewStyleRowLayout"
+            android:layout_below="@+id/txtItemCode"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:singleLine="false"
+            android:textColor="@color/colorGrey"
+            android:text="location" />
+
+        <TextView
+            android:id="@+id/txtBio"
+            style="@style/textViewStyleRowLayout"
+            android:layout_below="@+id/txtItemCode"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_15ssp"
+            android:singleLine="false"
+            android:text="Bio" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

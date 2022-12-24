@@ -18,17 +18,17 @@ import butterknife.ButterKnife;
 public class HomeHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.imgItems)
-    ImageView imgItems;
+    public  ImageView imgItems;
     @BindView(R.id.Discription)
-    TextView Discription;
+    public TextView Discription;
     @BindView(R.id.imgProfile)
-    ImageView imgProfile;
+    public ImageView imgProfile;
     @BindView(R.id.txtProfileName)
-    TextView txtProfileName;
+    public TextView txtProfileName;
     @BindView(R.id.linearItem)
-    LinearLayout linearItem;
+    public LinearLayout linearItem;
     @BindView(R.id.cardViewRoot)
-    CardView cardViewRoot;
+    public CardView cardViewRoot;
 
     public HomeHolder(View view) {
         super(view);

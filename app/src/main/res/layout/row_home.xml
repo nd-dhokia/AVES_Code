@@ -34,14 +34,16 @@
             android:id="@+id/Discription"
             style="@style/textViewStyleRowLayout"
             android:layout_below="@+id/txtItemCode"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:singleLine="false"
+            android:textColor="@color/colorGrey"
             android:text="TEST testtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -56,8 +58,10 @@
                 android:id="@+id/txtProfileName"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_15ssp"
+                android:textColor="@color/colorOrange"
                 style="@style/textViewStyleRowLayout"
-                android:text="27456-0109" />
+                android:textSize="@dimen/_20ssp"
+                android:text="Name" />
 
 
 
