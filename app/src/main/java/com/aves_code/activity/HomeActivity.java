@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import com.aves_code.AppLevelClass;
 import com.aves_code.FragmentState.FragmentState;
 import com.aves_code.R;
+import com.aves_code.dialog.ExitFragmentDialog;
 
 public class HomeActivity extends AppNavigationActivity {
 
@@ -27,9 +28,9 @@ public class HomeActivity extends AppNavigationActivity {
         if (i > 1) {
             getSupportFragmentManager().popBackStack();
         } else {
-//            ExitFragmentDialog exitFragmentDialog = ExitFragmentDialog.newInstance();
-//            exitFragmentDialog.show(getSupportFragmentManager(), exitFragmentDialog.getClass().getSimpleName());
-            this.finish();
+            ExitFragmentDialog exitFragmentDialog = ExitFragmentDialog.newInstance();
+            exitFragmentDialog.show(getSupportFragmentManager(), exitFragmentDialog.getClass().getSimpleName());
+//            this.finish();
         }
     }
 

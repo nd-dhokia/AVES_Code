@@ -19,8 +19,8 @@ public class HomeHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.imgItems)
     public  ImageView imgItems;
-    @BindView(R.id.Discription)
-    public TextView Discription;
+    @BindView(R.id.txtDiscription)
+    public TextView txtDiscription;
     @BindView(R.id.imgProfile)
     public ImageView imgProfile;
     @BindView(R.id.txtProfileName)

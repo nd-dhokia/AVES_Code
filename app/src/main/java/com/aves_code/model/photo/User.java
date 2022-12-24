@@ -1,9 +1,10 @@
 
 package com.aves_code.model.photo;
 
-import javax.annotation.Generated;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 
 public class User {
 
@@ -24,13 +25,13 @@ public class User {
     private String firstName;
     @SerializedName("last_name")
     @Expose
-    private String lastName;
+    private Object lastName;
     @SerializedName("twitter_username")
     @Expose
-    private String twitterUsername;
+    private Object twitterUsername;
     @SerializedName("portfolio_url")
     @Expose
-    private String portfolioUrl;
+    private Object portfolioUrl;
     @SerializedName("bio")
     @Expose
     private String bio;
@@ -105,27 +106,27 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public Object getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(Object lastName) {
         this.lastName = lastName;
     }
 
-    public String getTwitterUsername() {
+    public Object getTwitterUsername() {
         return twitterUsername;
     }
 
-    public void setTwitterUsername(String twitterUsername) {
+    public void setTwitterUsername(Object twitterUsername) {
         this.twitterUsername = twitterUsername;
     }
 
-    public String getPortfolioUrl() {
+    public Object getPortfolioUrl() {
         return portfolioUrl;
     }
 
-    public void setPortfolioUrl(String portfolioUrl) {
+    public void setPortfolioUrl(Object portfolioUrl) {
         this.portfolioUrl = portfolioUrl;
     }
 

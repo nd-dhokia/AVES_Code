@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,12 +17,25 @@ import com.aves_code.FragmentState.FragmentState;
 import com.aves_code.R;
 import com.aves_code.adapter.generic_adapter.GenericAdapter;
 import com.aves_code.adapter.viewholder.HomeHolder;
+import com.aves_code.apicall.ApiParam;
+import com.aves_code.apicall.NetworkCall;
+import com.aves_code.apicall.iResponseCallback;
+import com.aves_code.model.photo.PhotoPojo;
+import com.aves_code.utils.DebugLog;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,49 +96,77 @@ public class HomeFragment extends BaseFragment {
 
         LinearLayoutManager lLayout = new LinearLayoutManager(getContext());
         rvHome.setLayoutManager(lLayout);
-        setAdapter();
+
+        callPhotoListApi();
     }
 
-    private void setAdapter() {
-        final List<String> data = getStringList(20, "Branch");
-        GenericAdapter<String, HomeHolder> adapter = new GenericAdapter<String, HomeHolder>(R.layout.row_home, HomeHolder.class, data) {
+    private void callPhotoListApi() {
+        homeActivity.showProgressDialog();
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put(ApiParam.CLIENT_ID, ApiParam.CLIENT_ID_V);
+
+        NetworkCall.getInstance().callGetPhotoListDataApi(params, new iResponseCallback<List<PhotoPojo>>() {
+            @Override
+            public void success(List<PhotoPojo> data) {
+                setAdapter(data);
+            }
 
 
             @Override
-            public void loadMore() {
-
+            public void onFailure(List<PhotoPojo> baseModel) {
+                DebugLog.e("Status onFailure: API Fail");
             }
 
             @Override
-            public void setViewHolderData(HomeHolder viewHolderData, String data, int position) {
+            public void onError(Call<List<PhotoPojo>> responseCall, Throwable T) {
+                DebugLog.e("Throwable onError: " + T.toString());
+            }
+
+        });
+        homeActivity.hideProgressDialog();
+    }
+
+    private void setAdapter(List<PhotoPojo> data1) {
+        GenericAdapter<PhotoPojo, HomeHolder> adapter = new GenericAdapter<PhotoPojo, HomeHolder>(R.layout.row_home, HomeHolder.class, data1) {
+            @Override
+            public void setViewHolderData(HomeHolder viewHolderData, PhotoPojo data, int position) {
+                viewHolderData.txtProfileName.setText(data.getUser().getName());
+                viewHolderData.txtDiscription.setText(data.getUser().getBio());
+                RequestOptions requestOptions = new RequestOptions();
+                requestOptions = requestOptions.transforms(new CenterCrop(), new RoundedCorners(25));
+                Glide.with(getActivity()).
+                        load(data.getUser().getProfileImage().getLarge())
+                        .thumbnail(Glide.with(getContext()).load(R.drawable.ic_launcher_background))
+                        .apply(requestOptions)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(viewHolderData.imgProfile);
+
+                Glide.with(getActivity()).
+                        load(data.getUrls().getRegular())
+                        .thumbnail(Glide.with(getContext()).load(R.drawable.ic_launcher_background))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(viewHolderData.imgItems);
 
                 viewHolderData.imgItems.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        homeActivity.openDetailFragment(FragmentState.ADD);
+                        homeActivity.openDetailFragment(FragmentState.ADD, data);
                     }
                 });
 
                 viewHolderData.imgProfile.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        homeActivity.openProfileFragment(FragmentState.ADD);
+                        homeActivity.openProfileFragment(FragmentState.ADD, data);
                     }
                 });
 
                 viewHolderData.txtProfileName.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        homeActivity.openProfileFragment(FragmentState.ADD);
+                        homeActivity.openProfileFragment(FragmentState.ADD, data);
                     }
                 });
-
-
-            }
-
-            @Override
-            public void setViewHolderData(HomeHolder holder, HomeHolder data, int position) {
-
             }
         };
         if (rvHome != null)

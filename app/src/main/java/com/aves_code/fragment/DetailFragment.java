@@ -13,7 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.aves_code.R;
+import com.aves_code.model.photo.PhotoPojo;
 import com.aves_code.utils.DebugLog;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,8 +41,15 @@ public class DetailFragment extends BaseFragment {
     RelativeLayout relativeTopBar;
     @BindView(R.id.imgItems)
     ImageView imgItems;
-    @BindView(R.id.Discription)
-    TextView Discription;
+    @BindView(R.id.txtDiscription)
+    TextView txtDiscription;
+
+    private PhotoPojo photoPojos ;
+
+
+    public void setPhotoPojos(PhotoPojo photoPojos) {
+        this.photoPojos = photoPojos;
+    }
 
     public DetailFragment() {
         // Required empty public constructor
@@ -44,8 +57,9 @@ public class DetailFragment extends BaseFragment {
 
 
     // TODO: Rename and change types and number of parameters
-    public static DetailFragment newInstance() {
+    public static DetailFragment newInstance(PhotoPojo photoData) {
         DetailFragment fragment = new DetailFragment();
+        fragment.setPhotoPojos(photoData);
         return fragment;
     }
 
@@ -69,7 +83,14 @@ public class DetailFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        txtTopbarTitle.setText("");
+        txtTopbarTitle.setText(photoPojos.getUser().getName());
+        Glide.with(getActivity()).
+                load(photoPojos.getUrls().getRegular())
+                .thumbnail(Glide.with(getContext()).load(R.drawable.ic_launcher_background))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imgItems);
+        txtDiscription.setText(photoPojos.getUser().getBio());
+
     }
 
     @Override
@@ -80,7 +101,6 @@ public class DetailFragment extends BaseFragment {
 
     @OnClick(R.id.imgTopbarLeft)
     public void onClick() {
-        DebugLog.e("Click------------");
         homeActivity.onBackPressed();
     }
 }

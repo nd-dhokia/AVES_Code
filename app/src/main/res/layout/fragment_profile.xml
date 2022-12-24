@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorWhite"
+    android:focusable="true"
+    android:clickable="true"
     tools:context=".fragment.ProfileFragment">
 
     <include layout="@layout/include_topbar" />
@@ -13,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:paddingTop="@dimen/_30sdp"
+        android:padding="@dimen/_30sdp"
         android:orientation="vertical">
 
         <ImageView
@@ -48,6 +50,10 @@
             android:layout_below="@+id/txtItemCode"
             android:layout_marginTop="@dimen/_15sdp"
             android:textSize="@dimen/_15ssp"
+            android:ellipsize="end"
+            android:lines="3"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:singleLine="false"
             android:text="Bio" />
 

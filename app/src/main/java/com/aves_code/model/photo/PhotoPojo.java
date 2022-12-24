@@ -2,10 +2,12 @@
 package com.aves_code.model.photo;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Photo {
+
+public class PhotoPojo {
 
     @SerializedName("id")
     @Expose
@@ -33,7 +35,7 @@ public class Photo {
     private String blurHash;
     @SerializedName("description")
     @Expose
-    private Object description;
+    private String description;
     @SerializedName("alt_description")
     @Expose
     private String altDescription;
@@ -126,11 +128,11 @@ public class Photo {
         this.blurHash = blurHash;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

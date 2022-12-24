@@ -26,18 +26,19 @@
             android:layout_height="@dimen/_140sdp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_launcher_background"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             />
 
 
         <TextView
-            android:id="@+id/Discription"
+            android:id="@+id/txtDiscription"
             style="@style/textViewStyleRowLayout"
             android:layout_below="@+id/txtItemCode"
             android:layout_marginTop="@dimen/_15sdp"
             android:singleLine="false"
+            android:ellipsize="end"
             android:textColor="@color/colorGrey"
-            android:text="TEST testtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt" />
+            android:text="TEST" />
 
         <LinearLayout
             android:layout_width="match_parent"

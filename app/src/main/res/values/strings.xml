@@ -6,4 +6,6 @@
 
     <string name="photo">PHOTO</string>
     <string name="profile">PROFILE</string>
+    <string name="ok">OK</string>
+    <string name="exit_dialog">Are you sure, You want to exit from the Application?</string>
 </resources>

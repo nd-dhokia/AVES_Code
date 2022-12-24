@@ -48,14 +48,10 @@ public abstract class GenericAdapter<T, VH extends RecyclerView.ViewHolder> exte
         setViewHolderData(holder, model, position);
     }
 
-    public abstract void loadMore();
-
     public abstract void setViewHolderData(VH viewHolderData, T data, int position);
 
     @Override
     public int getItemCount() {
         return modelList.size();
     }
-
-    public abstract void setViewHolderData(HomeHolder holder, HomeHolder data, int position);
 }

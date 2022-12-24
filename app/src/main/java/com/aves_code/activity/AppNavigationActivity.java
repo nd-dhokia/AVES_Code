@@ -9,6 +9,9 @@ import com.aves_code.fragment.DetailFragment;
 import com.aves_code.fragment.HomeFragment;
 import com.aves_code.fragment.ProfileFragment;
 import com.aves_code.listener.iAppNavigator;
+import com.aves_code.model.photo.PhotoPojo;
+
+import java.util.List;
 
 public class AppNavigationActivity extends BaseActivity implements iAppNavigator {
 
@@ -19,13 +22,13 @@ public class AppNavigationActivity extends BaseActivity implements iAppNavigator
     }
 
     @Override
-    public void openDetailFragment(FragmentState fragmentState) {
-        fragmentChange(DetailFragment.newInstance(), fragmentState);
+    public void openDetailFragment(FragmentState fragmentState, PhotoPojo photoData) {
+        fragmentChange(DetailFragment.newInstance(photoData), fragmentState);
     }
 
     @Override
-    public void openProfileFragment(FragmentState fragmentState) {
-        fragmentChange(ProfileFragment.newInstance(), fragmentState);
+    public void openProfileFragment(FragmentState fragmentState, PhotoPojo photoData) {
+        fragmentChange(ProfileFragment.newInstance(photoData), fragmentState);
     }
 
 
